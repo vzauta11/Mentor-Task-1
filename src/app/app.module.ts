@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddItemComponent } from './pages/add-item/add-item.component';
+import { AddEditOrganizationComponent } from './pages/organizations/add-edit-organization/add-edit-organization.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatGridListModule } from '@angular/material/grid-list'; 
@@ -23,10 +23,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { HeaderComponent } from './pages/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AddItemComponent
+    AddEditOrganizationComponent,
+    // HeaderComponent
   ],
   imports: [
     BrowserModule,

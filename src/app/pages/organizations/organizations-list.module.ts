@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ItemsRoutingModule } from './items-routing.module';
-import { ItemsComponent } from './items.component';
+import { OrganizationsListRoutingModule } from './organizations-list-routing.module';
+import { OrganizationsListComponent } from './organizations-list.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -21,15 +21,18 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { HeaderComponent } from '../header/header.component';
 
 
 @NgModule({
   declarations: [
-    ItemsComponent,
+    OrganizationsListComponent,
+    HeaderComponent,
+    
   ],
   imports: [
     CommonModule,
-    ItemsRoutingModule,
+    OrganizationsListRoutingModule,
     MatSlideToggleModule,
     MatGridListModule,
     MatCardModule,
@@ -50,4 +53,4 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
      
   ]
 })
-export class ItemsModule { }
+export class OrganizationsListModule { }

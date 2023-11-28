@@ -1,23 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddItemComponent } from './pages/add-item/add-item.component';
 
 const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'items',
+    redirectTo: 'organizations',
     pathMatch: 'full'
   },
 
   {
-    path: 'items',
-    loadChildren: () => import ('./pages/items/items.module').then(m => m.ItemsModule)
-  },
-
-  {
-    path: 'addItem',
-    component: AddItemComponent
+    path: 'organizations',
+    loadChildren: () => import ('./pages/organizations/organizations-list.module').then(m => m.OrganizationsListModule)
   }
 ];
 

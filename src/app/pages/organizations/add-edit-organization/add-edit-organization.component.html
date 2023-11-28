@@ -1,0 +1,40 @@
+<div class="dialog">
+
+    <h2 mat-dialog-title>Add New Organizaiton</h2>
+    
+    <div mat-dialog-content>
+        <form [formGroup]="organForm">
+            <mat-form-field appearance="outline">
+                <mat-label>URL for Logo</mat-label>
+                <input formControlName="orgLogo" matInput placeholder="URL for Logo">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input formControlName="title" matInput placeholder="Title">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tracking in use</mat-label>
+                <input formControlName="trackinuse" matInput placeholder="Tracking in use">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tracking Assigned</mat-label>
+                <input formControlName="trackAssigned" matInput placeholder="Tracking Assigned">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Protection in use</mat-label>
+                <input formControlName="protinuse" matInput placeholder="Protection in use">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Protection Assigned</mat-label>
+                <input formControlName="protAssigned" matInput placeholder="Protection Assigned">
+            </mat-form-field>
+        </form>
+    
+    </div>
+    
+    <!-- Dialog buttons -->
+    <div mat-dialog-actions [align]="'end'">
+        <button mat-raised-button color="primary" (click)="addNewOrganization()" [disabled]="organForm.invalid">{{actionBtn}}</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</div>

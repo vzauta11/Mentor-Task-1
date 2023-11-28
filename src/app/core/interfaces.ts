@@ -1,8 +1,8 @@
 
-export interface Item {
+export interface Organization {
     id: number,
     title: string,
-    itemLogo: string,
+    orgLogo: string,
     trackinuse: string,
     trackAssigned: string,
     protinuse: string,

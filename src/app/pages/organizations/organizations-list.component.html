@@ -1,23 +1,25 @@
-<ng-container *ngIf="items">
+<ng-container *ngIf="data$ | async as organs">
   <mat-toolbar>
-    <p>All Organizations(<span>{{items.length}}</span>)</p>
+    <p>All Organizations(<span>{{organs.length}}</span>)</p>
     <mat-form-field appearance="outline">
       <mat-label>Search Organization</mat-label>
-      <input matInput (input)="filterItems($event)">
+      <input matInput [formControl] = "searchControlTwo">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
+
     <span class="example-spacer"></span>
     <button mat-raised-button color="primary" (click)="openDialog()">Add New Organization</button>
   </mat-toolbar>
 
+
   <mat-grid-list cols="3" rowHeight="350px" gutterSize="10px">
-    <mat-grid-tile *ngFor="let card of items; trackBy: trackByFn">
+    <mat-grid-tile *ngFor="let card of organs; trackBy: trackByFn">
       <div class="card-wrapper">
 
         <mat-card class="example-card">
           <mat-card-header>
             <img
-              src="https://www.freakyjolly.com/wp-content/uploads/2021/07/cropped-cropped-fj-logo-192-removebg-preview-e1625997712615-1.png"
+              src='{{card.orgLogo}}'
               mat-card-avatar />
             <mat-card-title><b>{{card.title}}</b></mat-card-title>
             <span class="example-spacer-two"></span>
@@ -26,7 +28,7 @@
             </button>
 
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>
+              <button mat-menu-item (click)="editOrg(card)" >
                 <mat-icon>edit</mat-icon>
                 <span>Edit</span>
               </button>
@@ -34,7 +36,7 @@
                 <mat-icon>call_missed_outgoing</mat-icon>
                 <span>Go to Organization</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="deleteOrg(card.id)">
                 <mat-icon>block</mat-icon>
                 <span>Delete Organization</span>
               </button>
