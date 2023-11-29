@@ -22,12 +22,16 @@ export class OrganService {
     return this.http.post<Organization>(this.URL, data)
   }
 
-  editOrganization(data:any, id: number):Observable<any> {
-    return this.http.put<any>(`${this.URL}/${id}`, data)
+  editOrganization(data: Organization, id: number):Observable<Organization> {
+    return this.http.put<Organization>(`${this.URL}/${id}`, data)
   }
 
-  deleteOrganization(id:number):Observable<Organization> {
+  deleteOrganization(id: number):Observable<Organization> {
     return this.http.delete<Organization>(`${this.URL}/${id}`)
+  }
+
+  getOrganization(id: number): Observable<Organization> {
+    return this.http.get<Organization>(`${this.URL}/${id}`)
   }
 
 

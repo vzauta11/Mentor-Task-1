@@ -1,4 +1,6 @@
 <ng-container *ngIf="data$ | async as organs">
+
+
   <mat-toolbar>
     <p>All Organizations(<span>{{organs.length}}</span>)</p>
     <mat-form-field appearance="outline">
@@ -7,32 +9,46 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
+<mat-form-field>
+  <mat-label>Sorting by Date</mat-label>
+  <mat-select (selectionChange)="sortingByDate($event)">
+    <mat-option>Clear</mat-option>
+    <mat-option value="{{direction}}" *ngFor="let direction of dateDirections">
+        {{ direction }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
     <span class="example-spacer"></span>
     <button mat-raised-button color="primary" (click)="openDialog()">Add New Organization</button>
   </mat-toolbar>
 
 
-  <mat-grid-list cols="3" rowHeight="350px" gutterSize="10px">
-    <mat-grid-tile *ngFor="let card of organs; trackBy: trackByFn">
-      <div class="card-wrapper">
 
+
+  
+  
+
+  <mat-grid-list cols="3" rowHeight="300px" gutterSize="10px" mat-grid-list>
+    <mat-grid-tile *ngFor="let card of organs; trackBy: trackByFn">
         <mat-card class="example-card">
           <mat-card-header>
             <img
-              src='{{card.orgLogo}}'
-              mat-card-avatar />
-            <mat-card-title><b>{{card.title}}</b></mat-card-title>
-            <span class="example-spacer-two"></span>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
+            src='{{card.orgLogo}}'
+            mat-card-avatar /> 
+            <div class="card-header">
+                <mat-card-title><b>{{card.title}}</b></mat-card-title>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+              </div>
 
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="editOrg(card)" >
                 <mat-icon>edit</mat-icon>
                 <span>Edit</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="goToDetails(card.id)">
                 <mat-icon>call_missed_outgoing</mat-icon>
                 <span>Go to Organization</span>
               </button>
@@ -57,7 +73,7 @@
                 </mat-list-item>
 
                 <mat-list-item role="listitem">
-                  Assigned: <input matInput type="number" style="width: 50px" value="{{card.trackAssigned}}">
+                  Assigned: <input matInput type="number" style="width: 20%" value="{{card.trackAssigned}}">
                 </mat-list-item>
 
               </mat-list>
@@ -68,14 +84,14 @@
                   </p>
                   in-use: <span style="color: green;"><b>{{card.protinuse}}</b></span>
                 </mat-list-item>
-                <mat-list-item role="listitem">Assigned:<input matInput type="number" style="width: 50px"
-                    value="{{card.protAssigned}}"></mat-list-item>
+                <mat-list-item role="listitem">Assigned: <input matInput type="number" style="width: 20%"
+                    value="{{card.protAssigned}}">
+                </mat-list-item>
               </mat-list>
 
             </div>
           </mat-card-content>
         </mat-card>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+      </mat-grid-tile>
+    </mat-grid-list>
 </ng-container>

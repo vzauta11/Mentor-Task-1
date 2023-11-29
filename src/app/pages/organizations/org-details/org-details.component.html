@@ -1,0 +1,48 @@
+<ng-container *ngIf="organization$ | async as organization">
+    <div class="container responsive-grid">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <img src='{{organization.orgLogo}}' mat-card-avatar />
+            <mat-card-title><b>{{organization.title}}</b></mat-card-title>
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-content>
+            <mat-card-title>Licenses</mat-card-title>
+            <div class="card-content">
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        <p>
+                            <b>Tracking</b>
+                        </p>
+                        in-use: <span style="color: red;"> <b>{{organization.trackinuse}}</b></span>
+                    </mat-list-item>
+
+                    <mat-list-item role="listitem">
+                        Assigned: <span><b>{{organization.protAssigned}}</b></span>
+                    </mat-list-item>
+
+                </mat-list>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        <p>
+                            <b>Protection</b>
+                        </p>
+                        in-use: <span style="color: green;"><b>{{organization.protinuse}}</b></span>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">Assigned: 
+                        <span><b>{{organization.protAssigned}}</b></span>
+                    </mat-list-item>
+                </mat-list>
+                <mat-list>
+                    <mat-list-item role="listitem">
+                        <mat-label><b>Creation Date</b></mat-label>
+                        <p>{{organization.creationDate}}</p>
+                    </mat-list-item>
+                  </mat-list>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+</ng-container>

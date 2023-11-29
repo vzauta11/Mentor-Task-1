@@ -45,6 +45,10 @@ export class AddEditOrganizationComponent {
         nonNullable: true,
         validators: [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]
       }),
+      creationDate: new FormControl<string>("", {
+        nonNullable: true,
+        validators: [Validators.required]
+      }),
       protAssigned: new FormControl<string>("", {
         nonNullable: true,
         validators: [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]
@@ -60,6 +64,7 @@ export class AddEditOrganizationComponent {
         this.organForm.controls['trackinuse'].setValue(this.editData.trackinuse)
         this.organForm.controls['trackAssigned'].setValue(this.editData.trackAssigned)
         this.organForm.controls['protinuse'].setValue(this.editData.protinuse)
+        this.organForm.controls['creationDate'].setValue(this.editData.creationDate)
         this.organForm.controls['protAssigned'].setValue(this.editData.protAssigned)
        }
   

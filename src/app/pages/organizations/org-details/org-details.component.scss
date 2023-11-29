@@ -1,0 +1,21 @@
+
+ .card-content {
+  display: flex;
+  margin: auto;
+ }
+ 
+.container {
+    height: 50%;
+
+ }
+
+  .responsive-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  mat-card{
+    width: 50%;
+  }

@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { OrganService } from '../services/organ.service';
 import { Organization } from 'src/app/core/interfaces';
-import { EMPTY, Observable, catchError, map, startWith, switchMap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, map, merge, startWith, switchMap } from 'rxjs';
 import { AddEditOrganizationComponent } from './add-edit-organization/add-edit-organization.component';
 import {MatDialog} from '@angular/material/dialog';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,11 +21,18 @@ export class OrganizationsListComponent{
   data$?: Observable<Organization[]>;
   
   searchControlTwo = new FormControl();
+
+  dataNeedsUpdate = new BehaviorSubject(false);
+
+
+  dateDirections : string[] = [ "Date ascending", "Date descending"];
+
+  currentSort!: string; 
   
   constructor(
     private readonly organService: OrganService,
     private readonly dialog: MatDialog,
-    private readonly cdRef: ChangeDetectorRef,
+    private readonly router: Router
     
     ) {
       this.initData();
@@ -33,16 +41,26 @@ export class OrganizationsListComponent{
 
 
   initData(): void {
-    this.data$ = this.searchControlTwo.valueChanges.pipe(
+    this.data$ = merge(this.searchControlTwo.valueChanges, this.dataNeedsUpdate).pipe(
       startWith(''),
-      switchMap((searchValue) => {
+      switchMap(() => {
         return this.organService.getOrganizations().pipe(map(res => {
+          const isUp = this.currentSort === "Date ascending";
+          const isDown = this.currentSort === "Date descending";
           return res.filter(item =>
-            item.title.toLowerCase().includes(searchValue.toLowerCase()));
+            item.title.toLowerCase().includes(this.searchControlTwo?.value?.toLowerCase() || ''))
+            .sort((a: any, b: any) => 
+            isUp ? a.creationDate.localeCompare(b.creationDate): isDown ? b.creationDate.localeCompare(a.creationDate): 0);
         }))     
 
       })
     )
+  }
+
+  sortingByDate(sortDate: any): void {
+    this.currentSort = sortDate.value;
+    this.dataNeedsUpdate.next(true);
+    console.log(this.currentSort);
   }
 
   openDialog(): void {
@@ -50,9 +68,8 @@ export class OrganizationsListComponent{
       width: "30%"
     }).afterClosed().subscribe((val) => {
       if (val === "Save") {
-        this.initData();  
+        this.dataNeedsUpdate.next(true)  
       }
-      this.cdRef.markForCheck();
     })
   }
 
@@ -64,9 +81,8 @@ export class OrganizationsListComponent{
       data: row
     }).afterClosed().subscribe((val) => {
       if (val === "update") {
-        this.initData()
+        this.dataNeedsUpdate.next(true)
       }
-      this.cdRef.markForCheck();
     })
   }
 
@@ -82,11 +98,13 @@ export class OrganizationsListComponent{
       })
     ).subscribe(() => {
       alert('Deleted Succesfully');
-      this.initData();
-      this.cdRef.markForCheck();
+      this.dataNeedsUpdate.next(true);
     })
   }
 
+  goToDetails(id: number): void {
+    this.router.navigate(['organizations', id])
+  }
  
 
   trackByFn(index: number, item: Organization): number {

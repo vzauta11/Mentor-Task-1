@@ -28,7 +28,7 @@ import { HeaderComponent } from './pages/header/header.component';
   declarations: [
     AppComponent,
     AddEditOrganizationComponent,
-    // HeaderComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

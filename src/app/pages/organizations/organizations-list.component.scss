@@ -2,20 +2,33 @@
     flex: 1 1 auto;
   }
   
-  .example-spacer-two {
-    padding-left: 100px;
-  }
-
   mat-form-field {
     margin: 20px 0px 0px 150px
+  }
+
+  mat-card {
+    margin: auto;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 10px;
   }
 
  .card-content {
   display: flex;
  }
 
- mat-card {
-  padding: 0px 40px 0px 30px;
- }
+
+ .example-card{
+  width: 95%;
+}
  
- 
+
+.card-wraper {
+  display: grid;
+  gap: 24px;
+  
+}

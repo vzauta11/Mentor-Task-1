@@ -21,13 +21,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { HeaderComponent } from '../header/header.component';
+import { OrgDetailsComponent } from './org-details/org-details.component';
 
 
 @NgModule({
   declarations: [
     OrganizationsListComponent,
-    HeaderComponent,
+    OrgDetailsComponent,
     
   ],
   imports: [
@@ -49,6 +49,7 @@ import { HeaderComponent } from '../header/header.component';
     MatSelectModule,
     MatListModule,
     MatMenuModule
+    
     
      
   ]

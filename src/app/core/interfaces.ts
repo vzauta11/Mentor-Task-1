@@ -6,6 +6,7 @@ export interface Organization {
     trackinuse: string,
     trackAssigned: string,
     protinuse: string,
+    creationDate: Date,
     protAssigned: string
 }
 
