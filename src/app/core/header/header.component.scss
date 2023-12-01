@@ -1,0 +1,26 @@
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-form-field {
+    margin-top: 20px;
+
+  }
+
+  .responsive-grid {
+    display: grid;
+    grid-template-rows: repeat(auto-fill);
+    gap: 24px;
+  }
+
+  .container {
+    padding: 5px;
+  }
+
+  button {
+    padding: 25px;
+  }
+
+
+ 

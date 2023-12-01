@@ -1,34 +1,31 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  mat-form-field {
-    margin: 20px 0px 0px 150px
-  }
 
-  mat-card {
-    margin: auto;
-  }
+.container {
+  padding: 24px;
+}
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 530px));
+  gap: 24px;
+}
 
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-left: 10px;
-  }
+img {
+  width: 10%;
+  height: 50px;
+ 
+}
 
- .card-content {
+.card-header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card-content {
   display: flex;
  }
 
-
- .example-card{
-  width: 95%;
-}
+ mat-card-title{
+  margin-top: 2%;
+  margin-left: 5%;
+ }
  
-
-.card-wraper {
-  display: grid;
-  gap: 24px;
-  
-}

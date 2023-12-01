@@ -1,7 +1,5 @@
-<div class="dialog">
-
-    <h2 mat-dialog-title>Add New Organizaiton</h2>
-    
+<ng-container>
+   <h2 mat-dialog-title>Add New Organizaiton</h2>
     <div mat-dialog-content>
         <form [formGroup]="organForm">
             <mat-form-field appearance="outline">
@@ -32,15 +30,15 @@
                 <mat-label>Choose a date</mat-label>
                 <input formControlName="creationDate" matInput [matDatepicker]="picker">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker ></mat-datepicker>
-              </mat-form-field>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
         </form>
-    
     </div>
-    
+
     <!-- Dialog buttons -->
     <div mat-dialog-actions [align]="'end'">
-        <button mat-raised-button color="primary" (click)="addNewOrganization()" [disabled]="organForm.invalid">{{actionBtn}}</button>
+        <button mat-raised-button color="primary" (click)="addNewOrganization()"
+            [disabled]="organForm.invalid">{{actionBtn}}</button>
         <button mat-raised-button color="warn" mat-dialog-close>Close</button>
     </div>
-</div>
+</ng-container>

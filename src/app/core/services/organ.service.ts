@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Organization } from 'src/app/core/interfaces';
+import { Organization } from 'src/app/core/interfaces/interfaces';
 
 
 @Injectable({
@@ -11,8 +11,7 @@ export class OrganService {
 
   constructor(private readonly http: HttpClient) { }
 
-  readonly URL = 'http://localhost:3000/posts'
-
+  readonly URL = 'http://localhost:3000/posts';
 
   getOrganizations(): Observable<Organization[]> {
     return this.http.get<Organization[]>(this.URL)

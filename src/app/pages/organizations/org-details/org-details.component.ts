@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
-import { Organization } from 'src/app/core/interfaces';
+import { Organization } from 'src/app/core/interfaces/interfaces';
 
 @Component({
   selector: 'app-org-details',
@@ -14,7 +14,7 @@ export class OrgDetailsComponent {
   constructor(private readonly route: ActivatedRoute) {
 
   }
-  
+
   readonly organization$: Observable<Organization> = this.route.data.pipe(
     map(( {org} ) => org)
   )

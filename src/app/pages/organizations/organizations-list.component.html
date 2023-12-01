@@ -1,97 +1,66 @@
 <ng-container *ngIf="data$ | async as organs">
 
+  <app-header (sortingByDate)="sortByDate($event)" [formControl]="searchControl" [organsLength]="organs"
+    (addItemEvent)="openDialog()">
+  </app-header>
 
-  <mat-toolbar>
-    <p>All Organizations(<span>{{organs.length}}</span>)</p>
-    <mat-form-field appearance="outline">
-      <mat-label>Search Organization</mat-label>
-      <input matInput [formControl] = "searchControlTwo">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+  <div class="container responsive-grid">
+    <mat-card *ngFor="let card of organs; trackBy: trackByFn">
+      <mat-card-header>
+        <img src='{{card.orgLogo}}' mat-card-avatar />
 
-<mat-form-field>
-  <mat-label>Sorting by Date</mat-label>
-  <mat-select (selectionChange)="sortingByDate($event)">
-    <mat-option>Clear</mat-option>
-    <mat-option value="{{direction}}" *ngFor="let direction of dateDirections">
-        {{ direction }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+        <div class="card-header">
+          <mat-card-title><b>{{card.title}}</b></mat-card-title>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editOrg(card)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="goToDetails(card.id)">
+              <mat-icon>call_missed_outgoing</mat-icon>
+              <span>Go to Organization</span>
+            </button>
+            <button mat-menu-item (click)="deleteOrg(card.id)">
+              <mat-icon>block</mat-icon>
+              <span>Delete Organization</span>
+            </button>
+          </mat-menu>
+        </div>
+      </mat-card-header>
 
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="primary" (click)="openDialog()">Add New Organization</button>
-  </mat-toolbar>
+      <mat-divider></mat-divider>
 
+      <mat-card-title>Licenses</mat-card-title>
+      <mat-card-content>
+        <div class="card-content">
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <p>
+                <b>Tracking</b>
+              </p>
+              in-use: <span style="color: red;"> <b>{{card.trackinuse}}</b></span>
+            </mat-list-item>
 
-
-
-  
-  
-
-  <mat-grid-list cols="3" rowHeight="300px" gutterSize="10px" mat-grid-list>
-    <mat-grid-tile *ngFor="let card of organs; trackBy: trackByFn">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <img
-            src='{{card.orgLogo}}'
-            mat-card-avatar /> 
-            <div class="card-header">
-                <mat-card-title><b>{{card.title}}</b></mat-card-title>
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-              </div>
-
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="editOrg(card)" >
-                <mat-icon>edit</mat-icon>
-                <span>Edit</span>
-              </button>
-              <button mat-menu-item (click)="goToDetails(card.id)">
-                <mat-icon>call_missed_outgoing</mat-icon>
-                <span>Go to Organization</span>
-              </button>
-              <button mat-menu-item (click)="deleteOrg(card.id)">
-                <mat-icon>block</mat-icon>
-                <span>Delete Organization</span>
-              </button>
-            </mat-menu>
-          </mat-card-header>
-
-          <mat-divider></mat-divider>
-
-          <mat-card-title>Licenses</mat-card-title>
-          <mat-card-content>
-            <div class="card-content">
-              <mat-list role="list">
-                <mat-list-item role="listitem">
-                  <p>
-                    <b>Tracking</b>
-                  </p>
-                  in-use: <span style="color: red;"> <b>{{card.trackinuse}}</b></span>
-                </mat-list-item>
-
-                <mat-list-item role="listitem">
-                  Assigned: <input matInput type="number" style="width: 20%" value="{{card.trackAssigned}}">
-                </mat-list-item>
-
-              </mat-list>
-              <mat-list role="list">
-                <mat-list-item role="listitem">
-                  <p>
-                    <b>Protection</b>
-                  </p>
-                  in-use: <span style="color: green;"><b>{{card.protinuse}}</b></span>
-                </mat-list-item>
-                <mat-list-item role="listitem">Assigned: <input matInput type="number" style="width: 20%"
-                    value="{{card.protAssigned}}">
-                </mat-list-item>
-              </mat-list>
-
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+            <mat-list-item role="listitem">
+              Assigned: <input matInput type="number" style="width: 20%" value="{{card.trackAssigned}}">
+            </mat-list-item>
+          </mat-list>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <p>
+                <b>Protection</b>
+              </p>
+              in-use: <span style="color: green;"><b>{{card.protinuse}}</b></span>
+            </mat-list-item>
+            <mat-list-item role="listitem">Assigned: <input matInput type="number" style="width: 20%"
+                value="{{card.protAssigned}}">
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </ng-container>

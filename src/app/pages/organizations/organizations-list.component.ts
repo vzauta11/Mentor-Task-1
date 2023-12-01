@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { OrganService } from '../services/organ.service';
-import { Organization } from 'src/app/core/interfaces';
-import { BehaviorSubject, EMPTY, Observable, catchError, map, merge, startWith, switchMap } from 'rxjs';
+import { OrganService } from '../../core/services/organ.service';
+import { Organization } from 'src/app/core/interfaces/interfaces';
+import { BehaviorSubject, EMPTY, Observable, Subscription, catchError, map, merge, startWith, switchMap } from 'rxjs';
 import { AddEditOrganizationComponent } from './add-edit-organization/add-edit-organization.component';
 import {MatDialog} from '@angular/material/dialog';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -20,35 +20,32 @@ export class OrganizationsListComponent{
 
   data$?: Observable<Organization[]>;
   
-  searchControlTwo = new FormControl();
+  searchControl = new FormControl();
 
   dataNeedsUpdate = new BehaviorSubject(false);
 
-
   dateDirections : string[] = [ "Date ascending", "Date descending"];
-
+  
   currentSort!: string; 
   
   constructor(
     private readonly organService: OrganService,
     private readonly dialog: MatDialog,
     private readonly router: Router
-    
     ) {
-      this.initData();
+      this.initData();      
     }
-    
 
 
   initData(): void {
-    this.data$ = merge(this.searchControlTwo.valueChanges, this.dataNeedsUpdate).pipe(
+    this.data$ = merge(this.searchControl.valueChanges, this.dataNeedsUpdate).pipe(
       startWith(''),
       switchMap(() => {
         return this.organService.getOrganizations().pipe(map(res => {
           const isUp = this.currentSort === "Date ascending";
           const isDown = this.currentSort === "Date descending";
           return res.filter(item =>
-            item.title.toLowerCase().includes(this.searchControlTwo?.value?.toLowerCase() || ''))
+            item.title.toLowerCase().includes(this.searchControl?.value?.toLowerCase() || ''))
             .sort((a: any, b: any) => 
             isUp ? a.creationDate.localeCompare(b.creationDate): isDown ? b.creationDate.localeCompare(a.creationDate): 0);
         }))     
@@ -57,10 +54,9 @@ export class OrganizationsListComponent{
     )
   }
 
-  sortingByDate(sortDate: any): void {
+  sortByDate(sortDate: any): void {
     this.currentSort = sortDate.value;
     this.dataNeedsUpdate.next(true);
-    console.log(this.currentSort);
   }
 
   openDialog(): void {

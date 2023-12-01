@@ -4,8 +4,8 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, catchError, of, throwError } from 'rxjs';
-import { Organization } from 'src/app/core/interfaces';
-import { OrganService } from '../../services/organ.service';
+import { Organization } from 'src/app/core/interfaces/interfaces';
+import { OrganService } from '../../../core/services/organ.service';
 
 @Injectable({
   providedIn: 'root'
