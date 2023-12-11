@@ -3,9 +3,9 @@
     {
       "orgLogo": "https://i.pinimg.com/736x/8b/c2/34/8bc2346097a2d340a8c6f39dcb472a68.jpg",
       "title": "Toyota",
-      "trackinuse": "1250",
-      "trackAssigned": "200",
-      "protinuse": "200",
+      "trackinuse": "150",
+      "trackAssigned": "150",
+      "protinuse": "111",
       "creationDate": "2023-10-28T10:53:19.681Z",
       "protAssigned": "300",
       "id": 7
@@ -15,7 +15,7 @@
       "title": "Porsche",
       "trackinuse": "411",
       "trackAssigned": "22",
-      "protinuse": "44",
+      "protinuse": "442",
       "creationDate": "2023-11-07T20:00:00.000Z",
       "protAssigned": "14",
       "id": 13
@@ -33,7 +33,7 @@
     {
       "orgLogo": "https://blog.hubspot.com/hs-fs/hubfs/coca%20cola.png?width=400&height=400&name=coca%20cola.png",
       "title": "Coca-Cola",
-      "trackinuse": "200",
+      "trackinuse": "400",
       "trackAssigned": "300",
       "protinuse": "120",
       "creationDate": "2023-11-30T20:00:00.000Z",
@@ -59,16 +59,6 @@
       "creationDate": "2021-06-16T20:00:00.000Z",
       "protAssigned": "250",
       "id": 17
-    },
-    {
-      "orgLogo": "https://images-workbench.99static.com/IBYQQvnAGth93KkeFrxbXtKV1vc=/99designs-contests-attachments/138/138730/attachment_138730698",
-      "title": "Starlink",
-      "trackinuse": "120",
-      "trackAssigned": "700",
-      "protinuse": "450",
-      "creationDate": "2022-07-13T20:00:00.000Z",
-      "protAssigned": "200",
-      "id": 18
     },
     {
       "orgLogo": "https://play-lh.googleusercontent.com/iTpx7rDQGJQd4dHVwhsKmSpQv72zyJ6M4df8smHO7rGCOJUKeKZtynrft0NWlnf47w",
@@ -155,10 +145,62 @@
       "title": "Bank Of Georgia",
       "trackinuse": "500",
       "trackAssigned": "1200",
-      "protinuse": "600",
+      "protinuse": "212",
       "creationDate": "2006-01-16T20:00:00.000Z",
       "protAssigned": "1500",
       "id": 27
+    },
+    {
+      "orgLogo": "https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/2847492b10e685715aa6",
+      "title": "STARLINK",
+      "trackinuse": "300",
+      "trackAssigned": "250",
+      "protinuse": "400",
+      "creationDate": "2022-10-19T20:00:00.000Z",
+      "protAssigned": "240",
+      "id": 28
+    },
+    {
+      "location": "კავეა სითი მოლი",
+      "name": "wewewew",
+      "price": "11",
+      "id": 33
+    },
+    {
+      "location": "მთავარი ოფისი",
+      "name": "kmlkmlkm",
+      "price": "18",
+      "id": 34
+    },
+    {
+      "location": "კავეა ისთ ფოინთი",
+      "name": "ertert",
+      "price": "16",
+      "id": 35
+    },
+    {
+      "location": "კავეა გალერია",
+      "name": "tretre",
+      "price": "11",
+      "id": 36
+    },
+    {
+      "location": "მთავარი ოფისი",
+      "name": "qweqwe",
+      "price": "11",
+      "id": 37
+    },
+    {
+      "location": "მთავარი ოფისი",
+      "name": "ert",
+      "price": "15",
+      "id": 38
+    },
+    {
+      "location": "კავეა სითი მოლი",
+      "name": "wewewew",
+      "price": "11",
+      "id": 39
     }
   ]
 }

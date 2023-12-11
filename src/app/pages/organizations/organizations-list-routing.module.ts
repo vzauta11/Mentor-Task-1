@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OrganizationsListComponent } from './organizations-list.component';
 import { OrgDetailsComponent } from './org-details/org-details.component';
-import { OrgResolver } from './resolvers/org.resolver';
+import { OrgResolver } from '../../core/resolvers/org.resolver';
 
 const routes: Routes = [
 

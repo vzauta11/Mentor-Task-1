@@ -13,6 +13,7 @@ export class OrganService {
 
   readonly URL = 'http://localhost:3000/posts';
 
+
   getOrganizations(): Observable<Organization[]> {
     return this.http.get<Organization[]>(this.URL)
   }

@@ -16,7 +16,7 @@
                             <p>
                                 <b>Tracking</b>
                             </p>
-                            in-use: <span style="color: red;"> <b>{{organization.trackinuse}}</b></span>
+                            in-use: <span class="t-in-use"> <b>{{organization.trackinuse}}</b></span>
                         </mat-list-item>
                         <mat-list-item role="listitem">
                             Assigned: <span><b>{{organization.protAssigned}}</b></span>
@@ -28,7 +28,7 @@
                             <p>
                                 <b>Protection</b>
                             </p>
-                            in-use: <span style="color: green;"><b>{{organization.protinuse}}</b></span>
+                            in-use: <span  class="p-in-use"><b>{{organization.protinuse}}</b></span>
                         </mat-list-item>
                         <mat-list-item role="listitem">Assigned:
                             <span><b>{{organization.protAssigned}}</b></span>
@@ -37,7 +37,7 @@
                     <mat-list>
                         <mat-list-item role="listitem">
                             <mat-label><b>Creation Date</b></mat-label>
-                            <p>{{organization.creationDate}}</p>
+                            <p>{{organization.creationDate | date}}</p>
                         </mat-list-item>
                     </mat-list>
                 </div>

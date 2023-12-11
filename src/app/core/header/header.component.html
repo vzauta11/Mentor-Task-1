@@ -1,7 +1,7 @@
 <ng-container>
     <div class="container responsive-grid">
         <mat-toolbar>
-            <p>All Organizations(<span>{{organsLength?.length}}</span>)</p>
+            <p>All Organizations(<span>{{organsLength.length}}</span>)</p>
             <mat-form-field appearance="outline" class="searchForm">
                 <mat-label>Search Organization</mat-label>
                 <input matInput [(ngModel)]="input" (ngModelChange)="onChange($event)">

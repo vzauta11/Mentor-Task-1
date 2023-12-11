@@ -5,7 +5,7 @@ import {
 } from '@angular/router';
 import { Observable, catchError, of, throwError } from 'rxjs';
 import { Organization } from 'src/app/core/interfaces/interfaces';
-import { OrganService } from '../../../core/services/organ.service';
+import { OrganService } from '../services/organ.service';
 
 @Injectable({
   providedIn: 'root'

@@ -13,9 +13,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 import { OrgDetailsComponent } from './org-details/org-details.component';
 import { AddEditOrganizationComponent } from './add-edit-organization/add-edit-organization.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 

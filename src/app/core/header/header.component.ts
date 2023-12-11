@@ -12,7 +12,7 @@ import { Organization } from 'src/app/core/interfaces/interfaces';
       useExisting: HeaderComponent,
       multi: true
     }
-  ],
+  ]
 })
 export class HeaderComponent implements ControlValueAccessor {
 
@@ -25,7 +25,7 @@ export class HeaderComponent implements ControlValueAccessor {
 
   @Output() addItemEvent = new EventEmitter<void>();
   @Output() sortingByDate = new EventEmitter<void>();
-  @Input() organsLength?: Organization[];
+  @Input() organsLength!: Organization[];
 
 
   constructor() {
