@@ -1,5 +1,4 @@
 <ng-container *ngIf="data$ | async as organs">
-<!-- <div class="main"> -->
 
   <app-header (sortingByDate)="sortByDate($event)" [formControl]="searchControl" [organsLength]="organs"
     (addItemEvent)="openDialog()">
@@ -63,6 +62,5 @@
       </mat-card-content>
     </mat-card>
   </div>
-<!-- </div> -->
 
 </ng-container>

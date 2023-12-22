@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PagenotfoundComponent } from './core/pagenotfound/pagenotfound.component';
 
-const routes: Routes = [
-
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'organizations',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
-
   {
     path: 'organizations',
-    loadChildren: () => import ('./pages/organizations/organizations-list.module').then(m => m.OrganizationsListModule)
-  }
+    loadChildren: () =>
+      import(
+        '../../src/app/pages/organizations/organizations-list-routing.module'
+      ).then((m) => m.ORG_ROUTES),
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

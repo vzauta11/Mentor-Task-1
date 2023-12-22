@@ -3,7 +3,7 @@
     {
       "orgLogo": "https://i.pinimg.com/736x/8b/c2/34/8bc2346097a2d340a8c6f39dcb472a68.jpg",
       "title": "Toyota",
-      "trackinuse": "150",
+      "trackinuse": "200",
       "trackAssigned": "150",
       "protinuse": "111",
       "creationDate": "2023-10-28T10:53:19.681Z",
@@ -131,7 +131,7 @@
       "id": 25
     },
     {
-      "orgLogo": "https://play-lh.googleusercontent.com/hYJ6euib6m60M5irh_UfAhzKz1H_VHFBk0Uxzd-dIIoqU8Wj0Sw0zBFznTta_fndUw",
+      "orgLogo": "https://play-lh.googleusercontent.com/jDZey_jeFRaVFKRBgaS3mWtrEP8S8DPRl-B4YijVGf-OxcN6dAB8j7AyDddlvAZN4nOM",
       "title": "TBC Bank",
       "trackinuse": "200",
       "trackAssigned": "400",
@@ -141,7 +141,7 @@
       "id": 26
     },
     {
-      "orgLogo": "https://play-lh.googleusercontent.com/GXkEoG4IWeByivskzwUU7v2-aTP3ioi941rD4_p8gkuQhfMo_Y0Ra_soYz0Ed0TV4wDv",
+      "orgLogo": "https://cbw.ge/storage/1172/bog.PNG",
       "title": "Bank Of Georgia",
       "trackinuse": "500",
       "trackAssigned": "1200",
@@ -159,48 +159,6 @@
       "creationDate": "2022-10-19T20:00:00.000Z",
       "protAssigned": "240",
       "id": 28
-    },
-    {
-      "location": "კავეა სითი მოლი",
-      "name": "wewewew",
-      "price": "11",
-      "id": 33
-    },
-    {
-      "location": "მთავარი ოფისი",
-      "name": "kmlkmlkm",
-      "price": "18",
-      "id": 34
-    },
-    {
-      "location": "კავეა ისთ ფოინთი",
-      "name": "ertert",
-      "price": "16",
-      "id": 35
-    },
-    {
-      "location": "კავეა გალერია",
-      "name": "tretre",
-      "price": "11",
-      "id": 36
-    },
-    {
-      "location": "მთავარი ოფისი",
-      "name": "qweqwe",
-      "price": "11",
-      "id": 37
-    },
-    {
-      "location": "მთავარი ოფისი",
-      "name": "ert",
-      "price": "15",
-      "id": 38
-    },
-    {
-      "location": "კავეა სითი მოლი",
-      "name": "wewewew",
-      "price": "11",
-      "id": 39
     }
   ]
 }

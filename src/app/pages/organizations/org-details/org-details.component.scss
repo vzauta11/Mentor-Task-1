@@ -1,33 +1,32 @@
-
- .card-content {
+.card-content {
   display: flex;
   margin: auto;
- }
- 
+}
+
 .container {
-    height: 50%;
+  height: 50%;
 
- }
+}
 
-  .responsive-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-  }
+.responsive-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
 
-  mat-card{
-    width: 50%;
-  }
+mat-card {
+  width: 50%;
+}
 
-  mat-card-title{
-    margin-top: 4%;
-   }
-   
-   .t-in-use{
-    color: red;
-   }
-  
-   .p-in-use{
-    color: green;
-   }
+mat-card-title {
+  margin-top: 4%;
+}
+
+.t-in-use {
+  color: red;
+}
+
+.p-in-use {
+  color: green;
+}
