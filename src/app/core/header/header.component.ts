@@ -21,7 +21,7 @@ import { MatSortModule } from '@angular/material/sort';
   standalone: true,
   imports: [
     CommonModule,
-    HeaderComponent,
+    FormsModule,
     MatInputModule,
     MatFormFieldModule,
     MatToolbarModule,
@@ -30,7 +30,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatNativeDateModule,
     MatSortModule,
     MatSelectModule,
-    FormsModule,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
